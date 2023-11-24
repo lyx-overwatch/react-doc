@@ -6,6 +6,11 @@
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
+  // use static export
+  // output: 'export',
+  // images: {
+  //   unoptimized: true,
+  // },
   pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx', 'md'],
   reactStrictMode: true,
   experimental: {
