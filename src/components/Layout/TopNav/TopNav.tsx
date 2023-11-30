@@ -260,7 +260,7 @@ export default function TopNav({
               </div>
             </div>
             <div className="hidden md:flex flex-1 justify-center items-center w-full 3xl:w-auto 3xl:shrink-0 3xl:justify-center">
-              <button
+              {/* <button
                 type="button"
                 className={cn(
                   'flex 3xl:w-[56rem] 3xl:mx-0 relative ps-4 pe-1 py-1 h-10 bg-gray-30/20 dark:bg-gray-40/20 outline-none focus:outline-link betterhover:hover:bg-opacity-80 pointer items-center text-start w-full text-gray-30 rounded-full align-middle text-base'
@@ -275,14 +275,14 @@ export default function TopNav({
                   </Kbd>
                   <Kbd>K</Kbd>
                 </span>
-              </button>
+              </button> */}
             </div>
             <div className="text-base justify-center items-center gap-1.5 flex 3xl:flex-1 flex-row 3xl:justify-end">
               <div className="mx-2.5 gap-1.5 hidden lg:flex">
                 <NavItem isActive={section === 'doc'} url="/doc">
                   Doc
                 </NavItem>
-                <NavItem isActive={section === 'learn'} url="/learn">
+                {/* <NavItem isActive={section === 'learn'} url="/learn">
                   Learn
                 </NavItem>
                 <NavItem
@@ -295,7 +295,7 @@ export default function TopNav({
                 </NavItem>
                 <NavItem isActive={section === 'blog'} url="/blog">
                   Blog
-                </NavItem>
+                </NavItem> */}
               </div>
               <div className="flex w-full md:hidden"></div>
               <div className="flex items-center -space-x-2.5 xs:space-x-0 ">
@@ -329,16 +329,6 @@ export default function TopNav({
                     className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link">
                     {lightIcon}
                   </button>
-                </div>
-                <div className="flex">
-                  <Link
-                    href="https://github.com/facebook/react/releases"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    aria-label="Open on GitHub"
-                    className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link">
-                    {githubIcon}
-                  </Link>
                 </div>
               </div>
             </div>

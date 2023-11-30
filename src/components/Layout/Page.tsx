@@ -18,7 +18,7 @@ import {getRouteMeta} from './getRouteMeta';
 import {TocContext} from '../MDX/TocContext';
 import type {TocItem} from 'components/MDX/TocContext';
 import type {RouteItem} from 'components/Layout/getRouteMeta';
-import {HomeContent} from './HomeContent';
+import {HomeContent, HomeDocContent} from './HomeContent';
 import {TopNav} from './TopNav';
 import cn from 'classnames';
 
@@ -52,7 +52,8 @@ export function Page({children, toc, routeTree, meta, section}: PageProps) {
 
   let content;
   if (isHomePage) {
-    content = <HomeContent />;
+    // content = <HomeContent />;
+    content = <HomeDocContent />;
   } else {
     content = (
       <div className="ps-0">

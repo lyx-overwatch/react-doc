@@ -81,6 +81,9 @@ function SandpackRoot(props: SandpackProps) {
         template="react"
         files={files}
         theme={CustomTheme}
+        customSetup={{
+          dependencies: {ysol: 'latest'},
+        }}
         options={{
           autorun,
           initMode: 'user-visible',
