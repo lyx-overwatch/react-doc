@@ -34,7 +34,7 @@ interface PageProps {
     canary?: boolean;
     description?: string;
   };
-  section: 'learn' | 'reference' | 'community' | 'blog' | 'home' | 'unknown';
+  section: string;
 }
 
 export function Page({children, toc, routeTree, meta, section}: PageProps) {

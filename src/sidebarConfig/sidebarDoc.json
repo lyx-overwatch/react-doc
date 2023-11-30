@@ -1,0 +1,14 @@
+{
+  "title": "React Doc",
+  "path": "/doc",
+  "routes": [
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "GET STARTED"
+    },
+    {
+      "title": "Introduce",
+      "path": "/doc"
+    }
+  ]
+}

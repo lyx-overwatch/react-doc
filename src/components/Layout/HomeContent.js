@@ -25,7 +25,7 @@ import {Logo} from 'components/Logo';
 import Link from 'components/MDX/Link';
 import CodeBlock from 'components/MDX/CodeBlock';
 import {ExternalLink} from 'components/ExternalLink';
-import sidebarBlog from '../../sidebarBlog.json';
+import sidebarBlog from '../../sidebarConfig/sidebarBlog.json';
 
 function Section({children, background = null}) {
   return (

@@ -6,11 +6,12 @@ import {Fragment, useMemo} from 'react';
 import {useRouter} from 'next/router';
 import {MDXComponents} from 'components/MDX/MDXComponents';
 import {Page} from 'components/Layout/Page';
-import sidebarHome from '../sidebarHome.json';
-import sidebarLearn from '../sidebarLearn.json';
-import sidebarReference from '../sidebarReference.json';
-import sidebarCommunity from '../sidebarCommunity.json';
-import sidebarBlog from '../sidebarBlog.json';
+import sidebarHome from '../sidebarConfig/sidebarHome.json';
+import sidebarLearn from '../sidebarConfig/sidebarLearn.json';
+import sidebarReference from '../sidebarConfig/sidebarReference.json';
+import sidebarCommunity from '../sidebarConfig/sidebarCommunity.json';
+import sidebarBlog from '../sidebarConfig/sidebarBlog.json';
+import sidebarDoc from '../sidebarConfig/sidebarDoc.json';
 
 export default function Layout({content, toc, meta}) {
   const parsedContent = useMemo(
@@ -37,7 +38,12 @@ export default function Layout({content, toc, meta}) {
     case 'blog':
       routeTree = sidebarBlog;
       break;
+    case 'doc':
+      routeTree = sidebarDoc;
+      break;
   }
+
+  // console.log(parsedToc, 'parsedToc');
   return (
     <Page toc={parsedToc} routeTree={routeTree} meta={meta} section={section}>
       {parsedContent}
@@ -58,6 +64,8 @@ function useActiveSection() {
     return 'community';
   } else if (asPath.startsWith('/blog')) {
     return 'blog';
+  } else if (asPath.startsWith('/doc')) {
+    return 'doc';
   } else {
     return 'unknown';
   }
@@ -280,14 +288,16 @@ export async function getStaticPaths() {
   }
 
   const files = await getFiles(rootDir);
-  const paths = files.map((file) => ({
-    params: {
-      markdownPath: getSegments(file),
-      // ^^^ CAREFUL HERE.
-      // If you rename markdownPath, update patches/next-remote-watch.patch too.
-      // Otherwise you'll break Fast Refresh for all MD files.
-    },
-  }));
+  const paths = files.map((file) => {
+    return {
+      params: {
+        markdownPath: getSegments(file),
+        // ^^^ CAREFUL HERE.
+        // If you rename markdownPath, update patches/next-remote-watch.patch too.
+        // Otherwise you'll break Fast Refresh for all MD files.
+      },
+    };
+  });
 
   return {
     paths: paths,

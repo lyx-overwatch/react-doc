@@ -139,7 +139,7 @@ export default function TopNav({
 }: {
   routeTree: RouteItem;
   breadcrumbs: RouteItem[];
-  section: 'learn' | 'reference' | 'community' | 'blog' | 'home' | 'unknown';
+  section: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const scrollParentRef = useRef<HTMLDivElement>(null);
@@ -279,6 +279,9 @@ export default function TopNav({
             </div>
             <div className="text-base justify-center items-center gap-1.5 flex 3xl:flex-1 flex-row 3xl:justify-end">
               <div className="mx-2.5 gap-1.5 hidden lg:flex">
+                <NavItem isActive={section === 'doc'} url="/doc">
+                  Doc
+                </NavItem>
                 <NavItem isActive={section === 'learn'} url="/learn">
                   Learn
                 </NavItem>

@@ -4,7 +4,7 @@
 
 import {Page} from 'components/Layout/Page';
 import {MDXComponents} from 'components/MDX/MDXComponents';
-import sidebarLearn from '../sidebarLearn.json';
+import sidebarLearn from '../sidebarConfig/sidebarLearn.json';
 
 const {Intro, MaxWidth, p: P, a: A} = MDXComponents;
 
