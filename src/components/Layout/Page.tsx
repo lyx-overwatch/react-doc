@@ -48,7 +48,6 @@ export function Page({children, toc, routeTree, meta, section}: PageProps) {
   const canary = meta.canary || false;
   const description = meta.description || route?.description || '';
   const isHomePage = cleanedPath === '/';
-  const isBlogIndex = cleanedPath === '/blog';
 
   let content;
   if (isHomePage) {
@@ -77,13 +76,11 @@ export function Page({children, toc, routeTree, meta, section}: PageProps) {
             )}>
             <TocContext.Provider value={toc}>{children}</TocContext.Provider>
           </div>
-          {!isBlogIndex && (
-            <DocsPageFooter
-              route={route}
-              nextRoute={nextRoute}
-              prevRoute={prevRoute}
-            />
-          )}
+          <DocsPageFooter
+            route={route}
+            nextRoute={nextRoute}
+            prevRoute={prevRoute}
+          />
         </div>
       </div>
     );
@@ -92,17 +89,14 @@ export function Page({children, toc, routeTree, meta, section}: PageProps) {
   let hasColumns = true;
   let showSidebar = true;
   let showToc = true;
-  if (isHomePage || isBlogIndex) {
+  if (isHomePage) {
     hasColumns = false;
     showSidebar = false;
     showToc = false;
-  } else if (section === 'blog') {
-    showToc = false;
-    hasColumns = false;
   }
 
   let searchOrder;
-  if (section === 'learn' || (section === 'blog' && !isBlogIndex)) {
+  if (section === 'learn') {
     searchOrder = order;
   }
 

@@ -25,7 +25,6 @@ import {Logo} from 'components/Logo';
 import Link from 'components/MDX/Link';
 import CodeBlock from 'components/MDX/CodeBlock';
 import {ExternalLink} from 'components/ExternalLink';
-import sidebarBlog from '../../sidebarConfig/sidebarBlog.json';
 
 function Section({children, background = null}) {
   return (
@@ -99,17 +98,6 @@ function CurrentTime() {
   return <span suppressHydrationWarning>{currentTime}</span>;
 }
 
-const blogSidebar = sidebarBlog.routes[1];
-if (blogSidebar.path !== '/blog') {
-  throw Error('Could not find the blog route in sidebarBlog.json');
-}
-const recentPosts = blogSidebar.routes.slice(0, 4).map((entry) => ({
-  title: entry.titleForHomepage,
-  icon: entry.icon,
-  date: entry.date,
-  url: entry.path,
-}));
-
 export function HomeDocContent() {
   return (
     <>
@@ -123,7 +111,7 @@ export function HomeDocContent() {
           ReactDoc
         </h1>
         <p className="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug self-center">
-          The website for doc and your component registry
+          The website for doc and your component library
         </p>
         <div className="mt-5 self-center flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
           <ButtonLink
@@ -131,7 +119,7 @@ export function HomeDocContent() {
             type="primary"
             size="lg"
             className="w-full sm:w-auto justify-center"
-            label="Learn React">
+            label="Learn ReactDoc">
             Learn ReactDoc
           </ButtonLink>
         </div>
@@ -154,7 +142,7 @@ export function HomeContent() {
             ReactDoc
           </h1>
           <p className="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug self-center">
-            The website for doc and your component registry
+            The website for your doc and component registry
           </p>
           <div className="mt-5 self-center flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
             <ButtonLink
@@ -455,20 +443,6 @@ export function HomeContent() {
                   <IconChevron />
                   Latest React News
                 </p>
-                <div className="flex-col sm:flex-row flex-wrap flex gap-5 text-start my-5">
-                  <div className="flex-1 min-w-[40%] text-start">
-                    <BlogCard {...recentPosts[0]} />
-                  </div>
-                  <div className="flex-1 min-w-[40%] text-start">
-                    <BlogCard {...recentPosts[1]} />
-                  </div>
-                  <div className="flex-1 min-w-[40%] text-start">
-                    <BlogCard {...recentPosts[2]} />
-                  </div>
-                  <div className="hidden sm:flex-1 sm:inline">
-                    <BlogCard {...recentPosts[3]} />
-                  </div>
-                </div>
                 <div className="flex lg:hidden justify-start w-full">
                   <CTA color="gray" icon="news" href="/blog">
                     Read more React news

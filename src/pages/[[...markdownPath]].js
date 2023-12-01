@@ -7,10 +7,6 @@ import {useRouter} from 'next/router';
 import {MDXComponents} from 'components/MDX/MDXComponents';
 import {Page} from 'components/Layout/Page';
 import sidebarHome from '../sidebarConfig/sidebarHome.json';
-import sidebarLearn from '../sidebarConfig/sidebarLearn.json';
-import sidebarReference from '../sidebarConfig/sidebarReference.json';
-import sidebarCommunity from '../sidebarConfig/sidebarCommunity.json';
-import sidebarBlog from '../sidebarConfig/sidebarBlog.json';
 import sidebarDoc from '../sidebarConfig/sidebarDoc.json';
 
 export default function Layout({content, toc, meta}) {
@@ -25,18 +21,6 @@ export default function Layout({content, toc, meta}) {
     case 'home':
     case 'unknown':
       routeTree = sidebarHome;
-      break;
-    case 'learn':
-      routeTree = sidebarLearn;
-      break;
-    case 'reference':
-      routeTree = sidebarReference;
-      break;
-    case 'community':
-      routeTree = sidebarCommunity;
-      break;
-    case 'blog':
-      routeTree = sidebarBlog;
       break;
     case 'doc':
       routeTree = sidebarDoc;
@@ -56,14 +40,6 @@ function useActiveSection() {
   const cleanedPath = asPath.split(/[\?\#]/)[0];
   if (cleanedPath === '/') {
     return 'home';
-  } else if (cleanedPath.startsWith('/reference')) {
-    return 'reference';
-  } else if (asPath.startsWith('/learn')) {
-    return 'learn';
-  } else if (asPath.startsWith('/community')) {
-    return 'community';
-  } else if (asPath.startsWith('/blog')) {
-    return 'blog';
   } else if (asPath.startsWith('/doc')) {
     return 'doc';
   } else {

@@ -1,6 +1,6 @@
 ---
 id: home
-title: React
+title: ReactDoc
 permalink: index.html
 ---
 
